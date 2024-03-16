@@ -1,1 +1,1 @@
-# program_practice_c
+# 這裡存放Ｃ的練習程式
