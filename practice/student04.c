@@ -13,7 +13,7 @@ struct student //結構宣告
 };
 void student_input(int n);//資料輸入
 int student_score(int n);//總成績
-void scanf_flush();//清記憶體
+void scanf_flush();//input buffer
 struct student struct_student[MAX];//結構變數宣告
 int main(){
     char scanf_in[]="";//宣告
@@ -52,7 +52,7 @@ int main(){
             printf("輸入錯誤\n");//輸入的值錯誤
             break;
         }
-        scanf_flush();//清記憶體
+        scanf_flush();//input buffer
     }
     return 0;
 }
@@ -61,7 +61,7 @@ void student_input(int n){
     struct student struct_student_input;//結構變數宣告
     void *scanf_void[]={&struct_student_input.name,&struct_student_input.no,&struct_student_input.score};//宣告記憶體位置
     for(int i=0;i<(int)(sizeof(pr)/sizeof(pr[0]));i++){//跑迴圈
-        scanf_flush();//清記憶體
+        scanf_flush();//input buffer
         printf("請輸入%s:",pr[i]);//顯示需要輸入的值
         if(strcmp(scanf_if[i],"char")==0)//判斷輸入為字串或數值
         {
@@ -84,6 +84,5 @@ int student_score(int n){
     return return_score;
 }
 void scanf_flush(){
-    while ( (getchar()) != '\n' )
-        continue;//
+    while ( (getchar()) != '\n' );
 }
